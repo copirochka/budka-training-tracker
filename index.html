@@ -47,7 +47,7 @@
     .top {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       align-items: flex-start;
       margin-bottom: 16px;
     }
@@ -58,7 +58,38 @@
       line-height: .98;
       letter-spacing: -.03em;
       font-weight: 540;
+      flex: 1 1 auto;
     }
+
+    .brand-badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(76, 76, 84, .16);
+      background: rgba(255,255,255,.46);
+      box-shadow: 0 10px 24px rgba(50,45,56,.06);
+    }
+
+    .brand-word {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.05em;
+    }
+
+    .brand-word span { display: inline-block; }
+    .brand-b { color: #79b7a1; }
+    .brand-u { color: #e2735a; }
+    .brand-d { color: #9a9cf6; }
+    .brand-k { color: #5d9fe3; }
+    .brand-a { color: #e69aaa; }
 
     .pill {
       border: 1px solid var(--line);
@@ -80,8 +111,8 @@
 
     .hero {
       position: relative;
-      min-height: 168px;
-      padding: 20px 20px 18px;
+      min-height: 184px;
+      padding: 22px 118px 20px 20px;
       background: var(--lav);
       margin-bottom: 14px;
     }
@@ -89,6 +120,7 @@
     .hero h2 {
       position: relative;
       z-index: 2;
+      max-width: 310px;
       font-size: 24px;
       line-height: 1.05;
       letter-spacing: -.02em;
@@ -103,15 +135,16 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.35;
-      max-width: 280px;
+      max-width: 250px;
     }
 
     .starburst {
       position: absolute;
-      right: 28px;
-      top: 54px;
-      width: 86px;
-      height: 86px;
+      right: 18px;
+      top: auto;
+      bottom: 28px;
+      width: 76px;
+      height: 76px;
       opacity: .75;
       background: repeating-conic-gradient(from 0deg, var(--accent2) 0deg 9deg, transparent 9deg 18deg);
       border-radius: 50%;
@@ -120,10 +153,10 @@
 
     .soft-star {
       position: absolute;
-      right: 34px;
-      bottom: 18px;
-      width: 78px;
-      height: 78px;
+      right: 30px;
+      bottom: 12px;
+      width: 66px;
+      height: 66px;
       background: #f7cc72;
       clip-path: polygon(50% 0%, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0% 50%, 39% 36%);
       opacity: .75;
@@ -472,6 +505,98 @@
       margin: 6px 0 0;
     }
 
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .history-item {
+      border-radius: 18px;
+      padding: 13px 14px;
+      border: 1px solid rgba(76,76,84,.16);
+      background: rgba(255,255,255,.38);
+    }
+
+    .history-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .history-date {
+      font-size: 15px;
+      font-weight: 560;
+    }
+
+    .history-program {
+      border: 1px solid rgba(76,76,84,.22);
+      border-radius: 10px;
+      padding: 4px 8px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .history-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .empty-history {
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--lav);
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    @media (max-width: 380px) {
+      .top {
+        gap: 10px;
+      }
+      .brand-badge {
+        min-height: 52px;
+        padding: 10px 12px;
+        border-radius: 16px;
+      }
+      .brand-word {
+        font-size: 20px;
+      }
+      .hero {
+        padding-right: 94px;
+      }
+      .hero h2 {
+        font-size: 22px;
+      }
+      .hero p {
+        max-width: 220px;
+      }
+      .starburst {
+        width: 62px;
+        height: 62px;
+        right: 12px;
+        bottom: 34px;
+      }
+      .soft-star {
+        width: 54px;
+        height: 54px;
+        right: 22px;
+        bottom: 18px;
+      }
+    }
+
+
     @media (min-width: 700px) {
       body { padding: 28px; }
       .app { max-width: 760px; }
@@ -484,7 +609,7 @@
       .bottom-action .inner,
       .modal-box,
       .toast { max-width: 760px; }
-      .hero { min-height: 220px; }
+      .hero { min-height: 220px; padding-right: 132px; }
     }
   </style>
 </head>
@@ -493,8 +618,12 @@
 
   <main class="app">
     <div class="top">
-      <h1>Трекер<br>тренировок<br>БУДКА</h1>
-      <span class="pill">Мини-апп</span>
+      <h1>Трекер<br>тренировок</h1>
+      <div class="brand-badge" aria-label="БУДКА">
+        <div class="brand-word">
+          <span class="brand-b">Б</span><span class="brand-u">У</span><span class="brand-d">Д</span><span class="brand-k">К</span><span class="brand-a">А</span>
+        </div>
+      </div>
     </div>
 
     <div class="grid-desktop">
@@ -527,12 +656,15 @@
             <span>всего отметок</span>
           </div>
         </div>
+
+        <div class="quick-actions">
+          <button class="ghost-btn" id="historyBtn">Посмотреть историю</button>
+        </div>
       </div>
 
       <div>
         <div class="section-title">
           <h3>Календарь</h3>
-          <span class="pill">можно прошлые дни</span>
         </div>
 
         <section class="card month-card">
@@ -563,7 +695,7 @@
         <h3>Как прошла сегодняшняя тренировка?</h3>
         <button class="close" data-close>×</button>
       </div>
-      <p class="hint">Если уже занимались — отметьте тренировку и сохраните маленький отчёт. Даже если это были 10 минут переговоров с сыром.</p>
+      <p class="hint">Если уже занимались — отметьте тренировку и сохраните маленький отчёт.</p>
       <div class="modal-actions">
         <button class="ghost-btn" data-close>Позже</button>
         <button class="primary-btn" id="introStart">Отметить как сделанное</button>
@@ -602,6 +734,18 @@
       </div>
     </div>
   </div>
+
+  <div class="modal" id="historyModal">
+    <div class="modal-box">
+      <div class="modal-title">
+        <h3>История тренировок</h3>
+        <button class="close" data-close>×</button>
+      </div>
+      <p class="hint">Здесь собраны все отметки: что тренировали, как прошло и над чем ещё работаете.</p>
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </div>
+
 
   <script>
     const programs = [
@@ -651,6 +795,7 @@
     const programSelect = document.getElementById("programSelect");
     const formModal = document.getElementById("formModal");
     const introModal = document.getElementById("introModal");
+    const historyModal = document.getElementById("historyModal");
     const toast = document.getElementById("toast");
 
     function isoDate(date) {
@@ -884,6 +1029,63 @@
       setTimeout(() => toast.classList.remove("show"), 4200);
     }
 
+
+    function formatDateRu(dateKey) {
+      return parseIso(dateKey).toLocaleDateString("ru-RU", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderHistory() {
+      const list = document.getElementById("historyList");
+      const dates = allRecordDates().reverse();
+
+      if (!dates.length) {
+        list.innerHTML = `<div class="empty-history">Пока истории нет. Отметьте первую тренировку — и здесь появится лента прогресса.</div>`;
+        return;
+      }
+
+      list.innerHTML = dates.map(dateKey => {
+        const r = records[dateKey];
+        const emotion = r.emotion || r.customEmotion || "эмоция не указана";
+        const praise = r.praise ? `<div class="history-text"><b>Похвала:</b> ${escapeHtml(r.praise)}</div>` : "";
+        const workOn = r.workOn ? `<div class="history-text"><b>Работать над:</b> ${escapeHtml(r.workOn)}</div>` : "";
+        const comment = r.comment ? `<div class="history-text"><b>Комментарий:</b> ${escapeHtml(r.comment)}</div>` : "";
+        const program = programByName(r.program);
+
+        return `
+          <div class="history-item">
+            <div class="history-top">
+              <div>
+                <div class="history-date">${formatDateRu(dateKey)}</div>
+                <div class="history-text">${escapeHtml(emotion)}</div>
+              </div>
+              <div class="history-program" style="background:${program.color}">${escapeHtml(r.program)}</div>
+            </div>
+            ${praise}
+            ${workOn}
+            ${comment}
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openHistory() {
+      renderHistory();
+      historyModal.classList.add("open");
+    }
+
     function saveForm() {
       const customEmotion = document.getElementById("customEmotion").value.trim();
       const record = {
@@ -914,6 +1116,7 @@
     };
 
     document.getElementById("todayBtn").onclick = () => openForm(isoDate(new Date()));
+    document.getElementById("historyBtn").onclick = openHistory;
     document.getElementById("saveRecord").onclick = saveForm;
 
     document.getElementById("introStart").onclick = () => {
